@@ -1,1 +1,1 @@
-# tokyo-chiriquiz
+# tokyo-chiri-quiz
