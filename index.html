@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <title>東京地理クイズ</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+</head>
+<body>
+    <header>
+        <h1>東京地理クイズ</h1>
+        <p>東京の地名・通り名・交差点名を覚えよう！</p>
+    </header>
+    
+    <!-- 文字サイズ調整ボタンバー -->
+    <div class="font-size-selector">
+        <span>文字サイズ:</span>
+        <button type="button" class="font-btn" data-size="small">小</button>
+        <button type="button" class="font-btn active" data-size="medium">中</button>
+        <button type="button" class="font-btn" data-size="large">大</button>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script type="module" src="./js/main.js"></script>
+    
+    <div id="quiz-selection" class="selection-overlay">
+        <div id="main-selection">
+            <h2>クイズの種類を選択</h2>
+            <button id="select-place">地名クイズ (place name quiz)</button>
+            <button id="select-street">通り名クイズ (street quiz)</button>
+            <button id="select-cross">交差点クイズ (intersection quiz)</button>
+            
+            <div id="search-box">
+                <h3>地名・道路・交差点を検索</h3>
+                <div class="search-form">
+                    <input type="text" id="search-input" placeholder="地名・通り名または交差点名を入力...">
+                    <button id="search-submit-btn">検索</button>
+                </div>
+                <div id="search-results-list" class="hidden"></div>
+            </div>
+        </div>
+
+        <div id="place-quiz-selection" class="hidden">
+
+            <h2>地名クイズの種類を選択</h2>
+            <button id="select-place-city">地名から区・市を当てる</button>
+            <button id="select-place-name">場所から地名を当てる</button>
+            <button id="back-to-main-from-place">メイン選択に戻る</button>
+        </div>
+
+        <div id="sub-quiz-selection" class="hidden">
+            <h2>交差点クイズの種類を選択</h2>
+            <button id="select-cross-name">位置から交差点名を当てる</button>
+            <button id="select-cross-street">通り名から交差点名を当てる</button>
+            <button id="back-to-main-from-sub">メイン選択に戻る</button>
+        </div>
+
+        <div id="difficulty-selection" class="hidden">
+            <h2>難易度を選択</h2>
+            <button id="select-diff-beginner">初級</button>
+            <button id="select-diff-intermediate">中級</button>
+            <button id="select-diff-advanced">上級</button>
+            <button id="back-to-prev-from-diff">戻る</button>
+        </div>
+
+        <div id="question-count-selection" class="hidden">
+            <h2 style="text-align: center; margin-bottom: 20px;">出題数を選んでください</h2>
+            <div class="mode-group mode-quick">
+                <h3>🌱 手軽に遊ぶモード</h3>
+                <p>サクッと確認したい時に</p>
+                <button id="select-count-3">3問</button>
+                <button id="select-count-5">5問</button>
+                <button id="select-count-10">10問</button>
+            </div>
+
+            <div class="mode-group mode-study">
+                <h3>📚 じっくり勉強モード</h3>
+                <p>しっかり記憶に定着させたい時に</p>
+                <button id="select-count-15">15問</button>
+                <button id="select-count-20">20問</button>
+                <button id="select-count-30">30問</button>
+            </div>
+
+            <button id="back-to-sub-from-count" style="margin-top: 20px; width: 100%;">戻る</button>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <div id="quiz-container">
+        <div id="quiz-controls">
+            <h2 id="quiz-title"></h2>
+            <p id="question"></p>
+            <select id="answer">
+                <option value="">選択してください</option>
+            </select>
+            <button id="submit">回答</button>
+            <p id="feedback"></p>
+            <p>
+                スコア: <span id="current-score">0</span> /
+                <span id="total-questions">0</span>
+            </p>
+            <p id="result-display"></p>
+            <button id="review">間違えた問題を復習</button>
+            <button id="back-to-main-from-quiz">メインメニューに戻る</button>
+        </div>
+    </div>
+    <div id="quiz-result-overlay" class="hidden">
+        <div id="quiz-result-box">
+            <div id="quiz-result-text"></div>
+            <div id="quiz-correct-answer"></div>
+        </div>
+    </div>
+
+    <div id="results-modal" class="hidden">
+        <div class="modal-content">
+            <h2>クイズ結果</h2>
+            <div id="results-list"></div>
+            <button id="close-results-modal">閉じる</button>
+        </div>
+    </div>
+</body>
+    
+</html>
