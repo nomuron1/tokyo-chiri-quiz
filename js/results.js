@@ -37,6 +37,10 @@ export function showResultsSummary() {
     }
 
     ui.resultsList.innerHTML = `
+        <div class="survey-link">
+        今後もっといいものにしていきたいので是非<a href="https://forms.gle/erpBoN5AV5N3tBS97" target="_blank" rel="noopener noreferrer">アンケート</a>へのご協力をお願いします！
+        </div>
+        
         <h2 class="results-header">
             結果発表: ${state.score} / ${state.totalQuestions} 問正解
         </h2>
