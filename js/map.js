@@ -12,7 +12,7 @@ export const placeTileLayer = L.tileLayer(
     "https://tile.mierune.co.jp/mierune/{z}/{x}/{y}.png",
     {
         attribution:
-            '&copy; <a href="https://mierune.github.io/tiles/">MIERUNE Inc. © OpenMapTiles © OpenStreetMap contributors</a>'
+        '<a href="https://mierune.co.jp">MIERUNE Inc.</a> <a href="https://www.openmaptiles.org/" target="_blank">&copy; OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'    
     }
 );
 
