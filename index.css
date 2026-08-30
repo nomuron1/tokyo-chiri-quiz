@@ -434,3 +434,21 @@ html {
   padding: 4px;
   text-align: center;
 }
+
+footer {
+  z-index: 2600;
+  padding: 5px;
+  background: #80805c;
+  color: #fff;
+  text-align: left;
+  a {
+    color: #93e47d;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  small {
+    display: block;
+    text-align: right;
+  }
+}
